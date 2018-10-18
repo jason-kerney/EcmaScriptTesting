@@ -1,0 +1,31 @@
+{
+    "extends": "eslint:recommended",
+    "parser": "esprima",
+    "env": {
+        "browser": true,
+        "node": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {}
+    },
+    "rules": {
+        "no-undef": "error",
+        "no-unused-vars": "warn",
+        "no-console": "warn",
+        "no-extra-boolean-cast": "off",
+        "semi": "error",
+        "no-inner-declarations": "warn",
+        "no-octal-escape": "warn"
+    },
+    "globals": {
+        "describe": false,
+        "it": false,
+        "before": false,
+        "after": false,
+        "beforeEach": false,
+        "afterEach": false,
+        "signet": false
+    }
+}
