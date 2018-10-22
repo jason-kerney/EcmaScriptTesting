@@ -1,6 +1,9 @@
 'use strict';
 
-let toppings = require('./toppings')();
+const toppings = require('./toppings')();
+const signet = require('./types');
+
+signet.alias('pizza', 'object');
 
 function pizzaBuilder() {
     toppings.buildToppingCategory('pepperoni', 1.25);
@@ -46,4 +49,7 @@ function pizzaBuilder() {
     return pizza;
 }
 
-module.exports = pizzaBuilder;
+module.exports = signet.enforce(
+    '() => pizza'
+    , pizzaBuilder
+);

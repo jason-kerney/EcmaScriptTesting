@@ -2,9 +2,6 @@
 
 const signet = require('./types');
 
-signet.alias('name', 'string');
-signet.alias('price', 'number');
-
 function toppings () {
     let t = {};
 
