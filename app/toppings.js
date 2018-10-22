@@ -42,8 +42,6 @@ function toppings () {
                 }
             };
         }
-        
-        return t;
     }
 
     return {

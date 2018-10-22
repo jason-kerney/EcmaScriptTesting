@@ -71,8 +71,10 @@ function main() {
     }
 
     function summarize(continuation) {
-            pizza.deliver();
+            let response = pizza.deliver();
             printPizza(pizza);
+            console.log(response);
+            continuation(null);
     }
 
     function moreToppings(topContinuation) {
