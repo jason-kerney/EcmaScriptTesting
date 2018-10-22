@@ -1,4 +1,10 @@
 'use strict';
+
+const signet = require('./types');
+
+signet.alias('name', 'string');
+signet.alias('price', 'number');
+
 function toppings () {
     let t = {};
 
@@ -46,7 +52,10 @@ function toppings () {
 
     return {
         'toppings' : t,
-        buildToppingCategory: buildToppingCategory
+        buildToppingCategory: signet.enforce(
+            'name, price => undefined', 
+            buildToppingCategory
+        )
     };
 }
 
