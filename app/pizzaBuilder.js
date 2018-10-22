@@ -18,6 +18,7 @@ function pizzaBuilder() {
 
     pizza['getTotal'] = function () {
         return (
+            25 + 
             toppingNames
                 .map(name => pizza[name].getAmmount())
                 .reduce((previous, current) => previous + current, 0)
