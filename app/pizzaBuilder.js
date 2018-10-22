@@ -3,13 +3,17 @@
 const toppings = require('./toppings')();
 const signet = require('./types');
 
-signet.defineDuckType('pizza', {
-    pepperoni: 'topping',
-    sausage: 'topping',
-    pineapple: 'topping',
-    'canadian bacon': 'topping',
-    bacon: 'topping'
-});
+signet.defineDuckType(
+    'pizza', {
+        pepperoni: 'topping',
+        sausage: 'topping',
+        pineapple: 'topping',
+        'canadian bacon': 'topping',
+        bacon: 'topping',
+        getTotal: 'function<() => price>',
+        deliver: 'function<() => string>'
+    }
+);
 
 function pizzaBuilder() {
     toppings.buildToppingCategory('pepperoni', 1.25);
@@ -27,7 +31,7 @@ function pizzaBuilder() {
 
     pizza['getTotal'] = function () {
         return (
-            25 + 
+            25 +
             toppingNames
                 .map(name => pizza[name].getAmmount())
                 .reduce((previous, current) => previous + current, 0)
