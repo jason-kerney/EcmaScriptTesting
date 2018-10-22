@@ -16,7 +16,7 @@ function toppings () {
                     value = 'Heavy';
                 },
                 'half' : function () {
-                    if((value.length() > 0) && !(value.includes('Half')) && !(value.includes('None'))) {
+                    if((value.length > 0) && !(value.includes('Half')) && !(value.includes('None'))) {
                         value += ' - Half'
                     }
                 },
@@ -24,7 +24,7 @@ function toppings () {
                     value = 'None'
                 },
                 'getTopping' : function () {
-                    return `${name} ${value}`;
+                    return `${name} ${value} $${t[name].getAmmount()}`;
                 },
                 'getAmmount' : function () {
                     if (value.includes('Light')) {
