@@ -2,17 +2,6 @@
 
 const signet = require('./types');
 
-signet.defineDuckType('topping', {
-    light: 'function',
-    regular: 'function',
-    heavy: 'function',
-    half: 'function',
-    none: 'function',
-    getTopping: 'function<() => string>',
-    getAmmount: 'function<() => price>',
-    hasAny: 'function<() => boolean>'
-});
-
 function toppings () {
     let t = {};
 

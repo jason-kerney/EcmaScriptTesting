@@ -3,18 +3,6 @@
 const toppings = require('./toppings')();
 const signet = require('./types');
 
-signet.defineDuckType(
-    'pizza', {
-        pepperoni: 'topping',
-        sausage: 'topping',
-        pineapple: 'topping',
-        'canadian bacon': 'topping',
-        bacon: 'topping',
-        getTotal: 'function<() => price>',
-        deliver: 'function<() => string>'
-    }
-);
-
 function pizzaBuilder() {
     toppings.buildToppingCategory('pepperoni', 1.25);
     toppings.buildToppingCategory('sausage', 1.25);
