@@ -15,7 +15,7 @@ describe('Pizza Builder', function () {
     });
 
     beforeEach(function () {
-        mockerySetup(mockery);
+        mockerySetup(mockery, '../app/pizzaBuilder');
         buildToppingCategorySpy = sinon.spy();
 
         function buildMockTopping(name) {
