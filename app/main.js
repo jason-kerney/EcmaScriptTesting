@@ -30,7 +30,7 @@ function getToppingNames(pizza) {
     );
 }
 
-function main() {
+function main(callback) {
     console.log('Welcome to the magic house pizza builder!');
 
     let pizza = pizzaBuilder();
@@ -59,22 +59,22 @@ function main() {
     });
 
     function askForToppings(continuation) {
-        toppingPrompt.ask(answer => continuation(null, answer));
+        toppingPrompt.ask(function requestTopping(answer) { continuation(null, answer); });
     }
 
     function askForAmount(continuation) {
-        amountPrompt.ask(answer => continuation(null, answer));
+        amountPrompt.ask(function requestAmount(answer) { continuation(null, answer); });
     }
 
     function askToContinue(continuation) {
-        continuePrompt.ask(answer => continuation(null, answer));
+        continuePrompt.ask(function wantToContinue(answer) { continuation(null, answer); });
     }
 
     function summarize(continuation) {
-            let response = pizza.deliver();
-            printPizza(pizza);
-            console.log(response);
-            continuation(null);
+        let response = pizza.deliver();
+        printPizza(pizza);
+        console.log(response);
+        continuation(null);
     }
 
     function moreToppings(topContinuation) {
@@ -121,7 +121,7 @@ function main() {
     async.waterfall([
         moreToppings,
         summarize
-    ]);
+    ], callback);
 }
 
 module.exports = main;
