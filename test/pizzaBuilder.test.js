@@ -117,7 +117,7 @@ describe('Pizza Builder', function () {
 
         assert.equal(r, 'Presto! Delivered to your door.');
 
-        let s = reportOnAllToppings({
+        let pizzaToppings = reportOnAllToppings({
             'pepperoni': p['pepperoni'],
             'sausage': p['sausage'],
             'pineapple': p['pineapple'],
@@ -126,12 +126,21 @@ describe('Pizza Builder', function () {
             'new testing topping': p['new testing topping']
         });
 
-        assert.equal(s[0], '{"name":"pepperoni","getTopping":"pepperoni Mock","getAmmount":-0.01,"hasAny":true}');
-        assert.equal(s[1], '{"name":"sausage","getTopping":"sausage Mock","getAmmount":-0.01,"hasAny":true}');
-        assert.equal(s[2], '{"name":"pineapple","getTopping":"pineapple Mock","getAmmount":-0.01,"hasAny":true}');
-        assert.equal(s[3], '{"name":"canadian bacon","getTopping":"canadian bacon Mock","getAmmount":-0.01,"hasAny":true}');
-        assert.equal(s[4], '{"name":"bacon","getTopping":"bacon Mock","getAmmount":-0.01,"hasAny":true}');
-        assert.equal(s[5], '{"name":"new testing topping","getTopping":"new testing topping Mock","getAmmount":-0.01,"hasAny":true}');
+        assert.equal(pizzaToppings[0], '{"name":"pepperoni","getTopping":"pepperoni Mock","getAmmount":-0.01,"hasAny":true}');
+        assert.equal(pizzaToppings[1], '{"name":"sausage","getTopping":"sausage Mock","getAmmount":-0.01,"hasAny":true}');
+        assert.equal(pizzaToppings[2], '{"name":"pineapple","getTopping":"pineapple Mock","getAmmount":-0.01,"hasAny":true}');
+        assert.equal(pizzaToppings[3], '{"name":"canadian bacon","getTopping":"canadian bacon Mock","getAmmount":-0.01,"hasAny":true}');
+        assert.equal(pizzaToppings[4], '{"name":"bacon","getTopping":"bacon Mock","getAmmount":-0.01,"hasAny":true}');
+        assert.equal(pizzaToppings[5], '{"name":"new testing topping","getTopping":"new testing topping Mock","getAmmount":-0.01,"hasAny":true}');
+
+        let spyToppings = reportOnAllToppings(toppingSpys);
+
+        assert.equal(spyToppings[0], '{"name":"pepperoni Mock","getTopping":1,"getAmmount":1,"hasAny":1}');
+        assert.equal(spyToppings[1], '{"name":"sausage Mock","getTopping":1,"getAmmount":1,"hasAny":1}');
+        assert.equal(spyToppings[2], '{"name":"pineapple Mock","getTopping":1,"getAmmount":1,"hasAny":1}');
+        assert.equal(spyToppings[3], '{"name":"canadian bacon Mock","getTopping":1,"getAmmount":1,"hasAny":1}');
+        assert.equal(spyToppings[4], '{"name":"bacon Mock","getTopping":1,"getAmmount":1,"hasAny":1}');
+        assert.equal(spyToppings[5], '{"name":"new testing topping Mock","getTopping":1,"getAmmount":1,"hasAny":1}');
     });
 
     afterEach(function () {
