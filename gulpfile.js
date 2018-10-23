@@ -8,7 +8,7 @@ const istanbul = require('gulp-istanbul');
 const mocha = require('gulp-mocha');
 
 const sourceFiles = [
-    'bin/**/*.js',
+    'app/**/*.js',
     'signet-types.js',
     'index.js',
     '!node_modules/**'
