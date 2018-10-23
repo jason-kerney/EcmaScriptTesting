@@ -5,4 +5,4 @@
 //module.exports = applicationEnvironment.build('main')();
 
 var main = require('./app/main');
-main();
+main(() => undefined);

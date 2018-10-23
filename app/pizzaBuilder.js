@@ -1,6 +1,7 @@
 'use strict';
 
-let toppings = require('./toppings')();
+const toppings = require('./toppings')();
+const signet = require('./types');
 
 function pizzaBuilder() {
     toppings.buildToppingCategory('pepperoni', 1.25);
@@ -18,7 +19,7 @@ function pizzaBuilder() {
 
     pizza['getTotal'] = function () {
         return (
-            25 + 
+            25 +
             toppingNames
                 .map(name => pizza[name].getAmmount())
                 .reduce((previous, current) => previous + current, 0)
@@ -46,4 +47,7 @@ function pizzaBuilder() {
     return pizza;
 }
 
-module.exports = pizzaBuilder;
+module.exports = signet.enforce(
+    '() => pizza'
+    , pizzaBuilder
+);
