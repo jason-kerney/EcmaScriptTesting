@@ -3,6 +3,7 @@
 const mockery = require('mockery');
 const sinon = require('sinon');
 const { assert } = require('chai');
+const {mockerySetup} = require('./test-utils/mockerySetup');
 
 describe('Pizza Builder', function () {
     let pizzaBuilder;
@@ -11,10 +12,10 @@ describe('Pizza Builder', function () {
 
     before(function () {
         mockery.enable({ useCleanCache: true });
-        mockery.registerAllowables(['./types', 'signet', 'signet-assembler', 'signet-checker', 'signet-parser', 'signet-registrar', 'signet-typelog', 'signet-validator', './bin/signet', './bin/duckTypes', './bin/coreTypes', './bin/recursiveTypes', '../app/pizzaBuilder'])
     });
 
     beforeEach(function () {
+        mockerySetup(mockery);
         buildToppingCategorySpy = sinon.spy();
 
         function buildMockTopping(name) {
@@ -113,7 +114,6 @@ describe('Pizza Builder', function () {
 
     afterEach(function () {
         mockery.deregisterAll();
-        mockery.deregisterAllowables(['./types', 'signet', 'signet-assembler', 'signet-checker', 'signet-parser', 'signet-registrar', 'signet-typelog', 'signet-validator', './bin/signet', './bin/duckTypes', './bin/coreTypes', './bin/recursiveTypes', '../app/pizzaBuilder'])
     });
 
     after(function () {
