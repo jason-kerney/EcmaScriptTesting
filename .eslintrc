@@ -13,7 +13,7 @@
     "rules": {
         "no-undef": "error",
         "no-unused-vars": "warn",
-        "no-console": "warn",
+        "no-console": "off",
         "no-extra-boolean-cast": "off",
         "semi": "error",
         "no-inner-declarations": "warn",
