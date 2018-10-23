@@ -35,7 +35,7 @@ function pizzaBuilder() {
                 getTopping: () => toppingInfo,
                 getAmmount: () => ammount,
                 hasAny: () => any
-            }
+            };
 
             pizza[name] = newTopping;
         });

@@ -17,11 +17,11 @@ function toppings () {
                 },
                 'half' : function () {
                     if((value.length > 0) && !(value.includes('Half')) && !(value.includes('None'))) {
-                        value += ' - Half'
+                        value += ' - Half';
                     }
                 },
                 'none' : function() {
-                    value = 'None'
+                    value = 'None';
                 },
                 'getTopping' : function () {
                     return `${name} ${value} $${t[name].getAmmount()}`;
